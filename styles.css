@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #016a70;
+  color: #ffffdd;
+}
+
+/* TEMPLATES */
+
+.title {
+  font-size: 50px;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-container {
+  background-color: white;
+  width: 450px;
+  height: 450px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.btn {
+  font-size: 16px;
+  padding: 10px;
+  background-color: #016a70;
+  color: #ffffdd;
+  border: 3px solid #ffffdd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-colorPicker {
+  display: flex;
+  column-gap: 10px;
+}
+
+.range-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-size {
+  width: 100%;
+}
+
+.colorPicker {
+  width: 27px;
+  height: 27px;
+  cursor: pointer;
+  background-color: #016a70;
+}
+
+.active {
+  background-color: #ffffdd;
+  color: #016a70;
+}
+
+.btn:hover {
+  background-color: #ffffdd;
+  color: #016a70;
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-size {
+  font-size: 16px;
+  padding: 10px;
+  width: 170px;
+}
