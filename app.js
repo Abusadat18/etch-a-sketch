@@ -1,16 +1,17 @@
 const container = document.querySelector(".flex-container");
 const input = document.querySelector(".grid-size");
-let numberOfSquare = 16;
 const btns = document.querySelectorAll(".btn");
 const getMode = document.querySelector(".active");
-let mode = getMode.dataset.mode;
 const colorPicker = document.querySelector(".colorPicker");
+
+let numberOfSquare = 16;
+let mode = getMode.dataset.mode;
 let colorChosen; 
 
 input.addEventListener("input", getInput);
 
 btns.forEach((item) => {
-    item.addEventListener("click", activeBtn,false);
+    item.addEventListener("click", activeBtn);
 })
 
 colorPicker.addEventListener("input", function (e) {
@@ -80,88 +81,118 @@ function setBoxHover(mode) {
     boxes.forEach((box) => {
 
         if (mode === "single") {
-            box.addEventListener("mousedown", function () {
-                box.style.backgroundColor = "black";
-                boxes.forEach((item) => {
-                    item.addEventListener("mouseover", setSingleColor);
-                })
-            })
-
-            box.addEventListener("mouseup", function () {
-                boxes.forEach((item) => {
-                    item.removeEventListener("mouseover", setSingleColor);
-                })
-            })
-
-            eventListenFunc = setSingleColor;
+            box.addEventListener("mousedown", singleColorMouseDown);
+            box.addEventListener("mouseup", singleColorMouseUp);
+            eventListenFunc = "single";
         }
 
         else if (mode === "select") {
-            // boxes.forEach((item) => {
-            //     item.removeEventListener("mouseover", eventListenFunc);
-            // })
-
-            box.addEventListener("mousedown", function () {
-                box.style.backgroundColor = colorChosen;
-                boxes.forEach((item) => {
-                    item.addEventListener("mouseover", setChosenColor);
-                })
-            })
-
-            box.addEventListener("mouseup", function () {
-                boxes.forEach((item) => {
-                    item.removeEventListener("mouseover", setChosenColor);
-                })
-            })
-
-            eventListenFunc = setChosenColor;
-            
+            box.addEventListener("mousedown", chosenColorMouseDown);
+            box.addEventListener("mouseup", chosenColorMouseUp);
+            eventListenFunc = setChosenColor; 
         }
 
         else if (mode === "rainbow") {
-            boxes.forEach((item) => {
-                item.removeEventListener("mouseover", eventListenFunc);
-            })
-
-            box.addEventListener("mousedown", function () {
-                box.style.backgroundColor = `${setRGB()}`;
-                boxes.forEach((item) => {
-                    item.addEventListener("mouseover", setRainbow);
-                })
-            })
-
-            box.addEventListener("mouseup", function () {
-                boxes.forEach((item) => {
-                    item.removeEventListener("mouseover", setRainbow);
-                })
-            })
-
+            box.addEventListener("mousedown", rainbowMouseDown);
+            box.addEventListener("mouseup", rainbowMouseUp);
             eventListenFunc = setRainbow;
         }
 
         else if (mode === "erase") {
-            box.addEventListener("mouseover", function () {
-                box.style.backgroundColor = "white";
-            })
+            box.addEventListener("mousedown", eraseMouseDown);
+            box.addEventListener("mouseup", eraseMouseUp);
         }
 
         else if (mode === "clear") {
             box.style.backgroundColor = "white";
         }
+    })
+}
 
+// *********************************************************
+
+function singleColorMouseDown(e) {
+    const boxes = document.querySelectorAll(".box");
+    e.currentTarget.style.backgroundColor = "black";
+    boxes.forEach((item) => {
+        item.addEventListener("mouseover", setSingleColor);
+    })
+}
+
+function singleColorMouseUp(e) {
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach((item) => {
+        item.removeEventListener("mouseover", setSingleColor);
     })
 }
 
 function setSingleColor(e) {
     e.target.style.backgroundColor = "black";
 }
+
+// *********************************************************
+// *********************************************************
  
+function chosenColorMouseDown(e) {
+    const boxes = document.querySelectorAll(".box");
+    e.currentTarget.style.backgroundColor = colorChosen;
+    boxes.forEach((item) => {
+        item.addEventListener("mouseover", setChosenColor);
+    })
+}
+
+function chosenColorMouseUp(e) {
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach((item) => {
+        item.removeEventListener("mouseover", setChosenColor);
+    })
+}
+
 function setChosenColor(e) {
     e.target.style.backgroundColor = colorChosen;
+}
+
+// *********************************************************
+// *********************************************************
+
+function rainbowMouseDown(e) {
+    const boxes = document.querySelectorAll(".box");
+    e.currentTarget.style.backgroundColor = `${setRGB()}`;
+    boxes.forEach((item) => {
+        item.addEventListener("mouseover", setRainbow);
+    })
+}
+
+function rainbowMouseUp(e) {
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach((item) => {
+        item.removeEventListener("mouseover", setRainbow);
+    })
 }
 
 function setRainbow(e) {
     e.target.style.backgroundColor = `${setRGB()}`;
 }
 
+// *********************************************************
+// *********************************************************
+function eraseMouseDown(e) {
+    const boxes = document.querySelectorAll(".box");
+    e.currentTarget.style.backgroundColor = "white";
+    boxes.forEach((item) => {
+        item.addEventListener("mouseover", setEraseColor);
+    })
+}
+function eraseMouseUp(e) {
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach((item) => {
+        item.removeEventListener("mouseover", setEraseColor);
+    })
+}
+
+function setEraseColor(e) {
+    e.target.style.backgroundColor = "white";
+}
+// *********************************************************
+// *********************************************************
 
