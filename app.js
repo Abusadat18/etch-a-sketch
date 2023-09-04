@@ -7,6 +7,8 @@ const colorPicker = document.querySelector(".colorPicker");
 let numberOfSquare = 16;
 let mode = getMode.dataset.mode;
 let colorChosen; 
+let prevMouseDownListner;
+let prevMouseUpListner;
 
 input.addEventListener("input", getInput);
 
@@ -46,6 +48,7 @@ function startGame() {
 
 function getInput(e) {
     numberOfSquare = e.target.value;
+    console.log(numberOfSquare);
     startGame();
 }
 
@@ -77,34 +80,56 @@ function makeGrid(numberOfSquare) {
 
 function setBoxHover(mode) {
     const boxes = document.querySelectorAll(".box");
-    let eventListenFunc;
+    
     boxes.forEach((box) => {
-
         if (mode === "single") {
+            
+            if (prevMouseDownListner && prevMouseUpListner) {
+                box.removeEventListener("mousedown", prevMouseDownListner);
+                box.removeEventListener("mouseup", prevMouseUpListner);
+            }
+    
             box.addEventListener("mousedown", singleColorMouseDown);
             box.addEventListener("mouseup", singleColorMouseUp);
-            eventListenFunc = "single";
+            prevMouseDownListner = singleColorMouseDown;
+            prevMouseUpListner = singleColorMouseUp;
         }
 
         else if (mode === "select") {
+            box.removeEventListener("mousedown", prevMouseDownListner);
+            box.removeEventListener("mouseup", prevMouseUpListner);
             box.addEventListener("mousedown", chosenColorMouseDown);
             box.addEventListener("mouseup", chosenColorMouseUp);
-            eventListenFunc = setChosenColor; 
+            prevMouseDownListner = chosenColorMouseDown;
+            prevMouseUpListner = chosenColorMouseUp;
         }
 
         else if (mode === "rainbow") {
+            box.removeEventListener("mousedown", prevMouseDownListner);
+            box.removeEventListener("mouseup", prevMouseUpListner);
             box.addEventListener("mousedown", rainbowMouseDown);
             box.addEventListener("mouseup", rainbowMouseUp);
-            eventListenFunc = setRainbow;
+            prevMouseDownListner = rainbowMouseDown;
+            prevMouseUpListner = rainbowMouseUp;
         }
 
         else if (mode === "erase") {
+            box.removeEventListener("mousedown", prevMouseDownListner);
+            box.removeEventListener("mouseup", prevMouseUpListner);
             box.addEventListener("mousedown", eraseMouseDown);
             box.addEventListener("mouseup", eraseMouseUp);
+            prevMouseDownListner = eraseMouseDown;
+            prevMouseUpListner = eraseMouseUp;
         }
 
         else if (mode === "clear") {
             box.style.backgroundColor = "white";
+            box.removeEventListener("mousedown", prevMouseDownListner);
+            box.removeEventListener("mouseup", prevMouseUpListner);
+            box.addEventListener("mousedown", eraseMouseDown);
+            box.addEventListener("mouseup", eraseMouseUp);
+            prevMouseDownListner = eraseMouseDown;
+            prevMouseUpListner = eraseMouseUp;
         }
     })
 }
