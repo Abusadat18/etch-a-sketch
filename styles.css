@@ -94,6 +94,7 @@ body {
 .btn:hover {
   background-color: #ffffdd;
   color: #016a70;
+  cursor: pointer;
 }
 
 .text-box {
