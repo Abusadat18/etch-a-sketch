@@ -14,8 +14,9 @@
   <body>
     <h1 class="title">ETCH-A-SKETCH</h1>
     <div class="main">
-      <div class="btn-container">
+      <div class="container">
         <div class="range-container">
+          <p>Click and Hold Mouse to Draw !</p>
           <input
             type="range"
             class="grid-size"
@@ -26,14 +27,18 @@
           />
           <p class="range-text">Grid-Size : 16 x 16</p>
         </div>
-        <button class="btn active" data-mode="single">Single Color Mode</button>
-        <button class="btn btn-colorPicker" data-mode="select">
-          <p>Select Color</p>
-          <input type="color" name="" id="colorPicker" class="colorPicker" />
-        </button>
-        <button class="btn" data-mode="rainbow">Rainbow Mode</button>
-        <button class="btn" data-mode="erase">Eraser</button>
-        <button class="btn" data-mode="clear">Clear</button>
+        <div class="btn-container">
+          <button class="btn active" data-mode="single">
+            Single Color Mode
+          </button>
+          <button class="btn btn-colorPicker" data-mode="select">
+            <p>Select Color</p>
+            <input type="color" name="" id="colorPicker" class="colorPicker" />
+          </button>
+          <button class="btn" data-mode="rainbow">Rainbow Mode</button>
+          <button class="btn" data-mode="erase">Eraser</button>
+          <button class="btn" data-mode="clear">Clear</button>
+        </div>
       </div>
       <div class="flex-container"></div>
     </div>
