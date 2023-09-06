@@ -1,5 +1,5 @@
 const container = document.querySelector(".flex-container");
-const input = document.querySelector(".grid-size");
+const input = document.querySelector(".slider");
 const btns = document.querySelectorAll(".btn");
 const getMode = document.querySelector(".active");
 const colorPicker = document.querySelector(".colorPicker");
