@@ -3,6 +3,7 @@ const input = document.querySelector(".grid-size");
 const btns = document.querySelectorAll(".btn");
 const getMode = document.querySelector(".active");
 const colorPicker = document.querySelector(".colorPicker");
+const rangeText = document.querySelector(".range-text");
 
 let numberOfSquare = 16;
 let mode = getMode.dataset.mode;
@@ -48,6 +49,7 @@ function startGame() {
 
 function getInput(e) {
     numberOfSquare = e.target.value;
+    rangeText.textContent = `Grid-Size : ${numberOfSquare} x ${numberOfSquare}`;
     console.log(numberOfSquare);
     startGame();
 }

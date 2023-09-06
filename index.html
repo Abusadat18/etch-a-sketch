@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-A-Sketch Game</title>
     <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/b75e553fb4.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -20,7 +24,7 @@
             max="100"
             value="16"
           />
-          <p>Grid-Size: 16x16</p>
+          <p class="range-text">Grid-Size : 16 x 16</p>
         </div>
         <button class="btn active" data-mode="single">Single Color Mode</button>
         <button class="btn btn-colorPicker" data-mode="select">
@@ -32,6 +36,15 @@
         <button class="btn" data-mode="clear">Clear</button>
       </div>
       <div class="flex-container"></div>
+    </div>
+    <div class="footer">
+      Copyright &copy; 2023 Abu Sadat Ansari
+      <a
+        href="https://github.com/Abusadat18/etch-a-sketch.git"
+        target="_blank"
+        rel="noreferrer noopener"
+        ><i class="fa-brands fa-github icon"></i
+      ></a>
     </div>
   </body>
 </html>

@@ -13,6 +13,9 @@ html {
 body {
   background-color: #016a70;
   color: #ffffdd;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 /* TEMPLATES */
@@ -35,6 +38,7 @@ body {
   height: 450px;
   display: flex;
   flex-wrap: wrap;
+  filter: drop-shadow(0 0 0.75rem #019ca4);
 }
 
 .btn-container {
@@ -45,13 +49,14 @@ body {
 
 .btn {
   font-size: 16px;
-  padding: 10px;
+  padding: 12px;
   background-color: #016a70;
   color: #ffffdd;
   border: 3px solid #ffffdd;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 15px;
 }
 
 .btn-colorPicker {
@@ -71,10 +76,10 @@ body {
 }
 
 .colorPicker {
-  width: 27px;
-  height: 27px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
-  background-color: #016a70;
+  background-color: #ffffdd;
 }
 
 .active {
@@ -96,4 +101,19 @@ body {
   font-size: 16px;
   padding: 10px;
   width: 170px;
+}
+
+.footer {
+  font-size: 18px;
+  margin-top: auto;
+  align-self: center;
+}
+
+.icon {
+  color: #ffffdd;
+  margin-left: 5px;
+}
+
+.icon:hover {
+  color: #ffffddaf;
 }
