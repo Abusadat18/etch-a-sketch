@@ -7,7 +7,7 @@ const rangeText = document.querySelector(".range-text");
 
 let numberOfSquare = 16;
 let mode = getMode.dataset.mode;
-let colorChosen; 
+let colorChosen = "black"; 
 let prevMouseDownListner;
 let prevMouseUpListner;
 
@@ -140,7 +140,7 @@ function setBoxHover(mode) {
 
 function singleColorMouseDown(e) {
     const boxes = document.querySelectorAll(".box");
-    e.currentTarget.style.backgroundColor = "black";
+    e.currentTarget.style.backgroundColor = colorChosen;
     boxes.forEach((item) => {
         item.addEventListener("mouseover", setSingleColor);
     })
@@ -154,7 +154,7 @@ function singleColorMouseUp(e) {
 }
 
 function setSingleColor(e) {
-    e.target.style.backgroundColor = "black";
+    e.target.style.backgroundColor = colorChosen;
 }
 
 // *********************************************************
