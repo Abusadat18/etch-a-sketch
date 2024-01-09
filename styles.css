@@ -141,13 +141,14 @@ body {
   font-size: 18px;
   margin-top: auto;
   align-self: center;
+  display: flex;
+  gap: 5px;
 }
 
-.icon {
+.footer a {
   color: #ffffdd;
-  margin-left: 5px;
 }
 
-.icon:hover {
-  color: #ffffddaf;
+.footer a:hover {
+  text-decoration: none;
 }
